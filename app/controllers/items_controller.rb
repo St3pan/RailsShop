@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :admin_user, only: [:new, :edit, :update, :destroy]
 
   # GET /items or /items.json
   def index
@@ -54,6 +55,11 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def admin_user
+    @role = current_user.role
+    redirect_to root_path, notice: "Not an Admin" if @role != 'admin'
   end
 
   private

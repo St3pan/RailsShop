@@ -12,9 +12,11 @@
         </li>
 
         <% if user_signed_in? %>
-          <li class="nav-item">
+            <% if current_user.role == 'admin' %>
+              <li class="nav-item">
                 <%= link_to "All Users", user_index_path, class: "nav-link" %>
-            </li>
+              </li>
+            <% end %>
             <li class="nav-item">
                 <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
             </li>

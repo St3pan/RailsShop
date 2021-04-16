@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
+<h1>Products</h1>
 
 <table>
   <thead>
@@ -19,8 +19,10 @@
         <td><%= item.Description %></td>
         <td><%= item.Price %></td>
         <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.role == 'admin' %>
+          <td><%= link_to 'Edit', edit_item_path(item) %></td>
+          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Item', new_item_path %>
+<% if current_user.role == 'admin' %>
+  <%= link_to 'New Item', new_item_path %>
+<% end %>
