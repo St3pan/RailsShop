@@ -1,0 +1,34 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %><br />
+    <%= form.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+  <div class="field">
+    <%= form.label :last_name %><br />
+    <%= form.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+  <div class="field">
+    <%= form.select :role, raw('<option value="admin">admin</option><option value="user">user</option>') %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "update"%>
+  </div>
+<% end %>
