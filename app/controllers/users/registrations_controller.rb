@@ -8,7 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def account_update_params
-      logger.debug "#{@user.inspect}"
+      #logger.debug "#{@user.inspect}"
       params.require(:user).permit(:first_name, :last_name, :role, :email, :password, :password_confirmation, :current_password)
     end
 end

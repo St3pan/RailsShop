@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   #devise_for :users
   resources :items
+  resources :user
 
   resources :shops, only:[:index, :show]
 
