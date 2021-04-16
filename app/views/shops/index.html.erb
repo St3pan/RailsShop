@@ -18,10 +18,14 @@
         <td><%= item.Name %></td>
         <td><%= item.Description %></td>
         <td><%= item.Price %></td>
-        <td><%= link_to 'Show', shop_path(item) %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<%= link_to 'New Item', new_item_path %>
