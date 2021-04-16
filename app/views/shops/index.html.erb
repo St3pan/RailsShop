@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.Name %></td>
+        <td><%= item.Description %></td>
+        <td><%= item.Price %></td>
+        <td><%= link_to 'Show', shop_path(item) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
