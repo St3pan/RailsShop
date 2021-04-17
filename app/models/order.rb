@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-    belongs_to :user, foreign_key: "user_id"
-    has_many :
+    belongs_to :user
+    has_one :order_description
 end

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :items
   resources :user
 
+  resources :pay
+
   resources :shops, only:[:index, :show]
 
   devise_for :users, controllers: {

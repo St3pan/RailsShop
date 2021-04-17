@@ -19,9 +19,20 @@
         <td><%= item.Description %></td>
         <td><%= item.Price %></td>
         <td><%= link_to 'Show', item %></td>
-        <% if current_user.role == 'admin' %>
-          <td><%= link_to 'Edit', edit_item_path(item) %></td>
-          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? %>
+          <% if current_user.role == 'admin' %>
+            <td><%= link_to 'Edit', edit_item_path(item) %></td>
+            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+          <td>
+          <%= form_with url: "/pay" do |f| %>
+          <%= f.hidden_field :item_id, :value => item.id %>
+          <%= f.hidden_field :user_id, :value => @user.id %>
+          <%= f.number_field :quantity, :value => 1, :min => 1 %>
+          <%= f.hidden_field :price, :value => item.Price %>
+          <%= f.submit "Pay" %>
+          <% end %>
+        </td>
         <% end %>
       </tr>
     <% end %>
@@ -30,6 +41,8 @@
 
 <br>
 
-<% if current_user.role == 'admin' %>
-  <%= link_to 'New Item', new_item_path %>
+<% if user_signed_in? %>
+  <% if current_user.role == 'admin' %>
+    <%= link_to 'New Item', new_item_path %>
+  <% end %>
 <% end %>
