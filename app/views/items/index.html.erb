@@ -15,9 +15,9 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.Name %></td>
-        <td><%= item.Description %></td>
-        <td><%= item.Price %></td>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td><%= item.price %></td>
         <td><%= link_to 'Show', item %></td>
         <% if user_signed_in? %>
           <% if current_user.role == 'admin' %>
@@ -29,7 +29,7 @@
           <%= f.hidden_field :item_id, :value => item.id %>
           <%= f.hidden_field :user_id, :value => @user.id %>
           <%= f.number_field :quantity, :value => 1, :min => 1 %>
-          <%= f.hidden_field :price, :value => item.Price %>
+          <%= f.hidden_field :price, :value => item.price %>
           <%= f.submit "Pay" %>
           <% end %>
         </td>

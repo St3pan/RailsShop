@@ -14,9 +14,9 @@ class ItemsTest < ApplicationSystemTestCase
     visit items_url
     click_on "New Item"
 
-    fill_in "Description", with: @item.Description
-    fill_in "Name", with: @item.Name
-    fill_in "Price", with: @item.Price
+    fill_in "Description", with: @item.description
+    fill_in "Name", with: @item.name
+    fill_in "Price", with: @item.price
     click_on "Create Item"
 
     assert_text "Item was successfully created"
@@ -27,9 +27,9 @@ class ItemsTest < ApplicationSystemTestCase
     visit items_url
     click_on "Edit", match: :first
 
-    fill_in "Description", with: @item.Description
-    fill_in "Name", with: @item.Name
-    fill_in "Price", with: @item.Price
+    fill_in "Description", with: @item.description
+    fill_in "Name", with: @item.name
+    fill_in "Price", with: @item.price
     click_on "Update Item"
 
     assert_text "Item was successfully updated"
