@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :user
 
   resources :pay
+  
+  resources :history
 
   resources :shops, only:[:index, :show]
 

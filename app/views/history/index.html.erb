@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Purchase history</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.amount %></td>
+        <td><%= link_to 'Show', pay_url(order.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

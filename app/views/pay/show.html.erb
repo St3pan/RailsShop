@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.Name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.Description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.Price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order_description.quantity %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @order.amount %>
+</p>
+
+<%= link_to 'Back', history_index_path %>
